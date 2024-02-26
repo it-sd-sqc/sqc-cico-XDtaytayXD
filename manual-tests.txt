@@ -61,4 +61,11 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
+# Module 4:  Recognition vs. recall in user interfaces.
 
+## Test steps
+1. Build and run CiCo.
+2. Enter 0s until they stop adding to the box and click update.
+
+## Expected Results
+* Should stop allowing 0s once the 8th one is entered
