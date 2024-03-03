@@ -41,7 +41,7 @@ public class Main {
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+      if (fb.getDocument() != null && fb.getDocument().getLength() < MAX_LENGTH) {
         super.insertString(fb, offset, stringToAdd, attr);
       }
       else {
@@ -53,7 +53,7 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+      if (fb.getDocument() != null && fb.getDocument().getLength() < MAX_LENGTH) {
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
       }
       else {
@@ -230,6 +230,7 @@ public class Main {
     frame.setMinimumSize(new Dimension(320, 240));
     frame.setPreferredSize(new Dimension(640, 480));
     frame.setMaximumSize(new Dimension(640, 480));
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     // Collect each "card" panel in a deck.
     deck = new JPanel(new CardLayout());
